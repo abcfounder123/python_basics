@@ -14,10 +14,12 @@ print(x[len(x) - 1]) # last element
 print(x[-len(x)]) # first element
 print(x[-1]) # last element
 
-x = "abcdefg"
 #  a,  b,  c,  d,  e,  f,  g
 # -7, -6, -5, -4, -3, -2, -1,
 #  0,  1,  2,  3,  4,  5,  6
+
+# positive index range ---> 0  ---  total - 1
+# negative index range ---> 1  ---  total
 
 min_index = -len(x)
 max_index = len(x) - 1
@@ -43,21 +45,19 @@ print(x[t//2 - 1]) # middle element ( left )
 # step.3  ( first 3, last 3 )
 # total - easy index
 
-x = "abcdefg"
-
 t = len(x)
-print(t - 3 ) # positive index of last 3
-print(x[t - 3]) # last 3
+print(t - 3)  # positive index of last 3
+print(x[t - 3])  # last 3
 
-print(-3) # negativee index of last 3
-print(x[-3]) #
+
+print(-3)  # negative index of last 3
+print(x[-3])  #
 
 print(2) # positive index of first 3
 print(x[2]) # first 3
 
 print(-(t - 2)) # negative index of first 3
 print(x[-(t - 2)]) #
-
 ################################################
 
 # step.4 ( range )
@@ -228,21 +228,45 @@ print(middle)
 # Nested if
 
 c1 = 1
-c2 = 0
-c3 = 1
+c2 = 1
+c3 = 0
 c4 = 0
 c5 = 1
 # 0 0 1
 if c1:
     if c2:
-        pass
+        if c3:
+            if c4:
+                if c5:
+                    pass
+                else:
+                    pass
+            else:
+                if c5:
+                    pass
+                else:
+                    pass
+        else:
+            if c4:
+                if c5:
+                    pass
+                else:
+                    pass
+            else:
+                print("motor on")
+                if c5:
+                    pass
+                else:
+                    pass
+
+
     else:
         if c3:
             if c4:
                 pass
             else:
                 if c5:
-                    print("abc")
+                    pass
                 else:
                     pass
         else:
@@ -253,25 +277,31 @@ if c1:
 
 else:
     if c2:
-        if c3:
 
+        if c3:
             if c4:
                 pass
             else:
                 pass
 
         else:
-            pass
+            if c4:
+                if c5:
+                    pass
+                else:
+                    pass
+
     else:
         if c3:
             if c4:
-                pass
+                print('a')
             else:
                 pass
 
 
         else:
             pass
+
 
 ################################################
 

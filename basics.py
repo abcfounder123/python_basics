@@ -120,7 +120,6 @@ description              >>       1. binary operator                        --->
 10 // 3 = 3
 10 % 3 = 1
 
-
 print(4 - 3) # binary minus ( sub )
 print( - 3)  # unary minus ( neg )
 print(dir(1))
@@ -146,7 +145,7 @@ description              >>       p, e, u, * / , + -, ...,  =
                                   2. exponent                      --->   **                      --->   Right sided bind     --->   2 ** 2 ** 3
                                                                                                                                      2 ** (2 ** 3)
                                                                                                                                      2 ** 8
-                                                                                                                                     256
+                                                                                                                                     
                                   3. unary minus, unary plus       --->   -1, +1                                                                                                     
 
                                   4. multiplication, division      --->   *, /, //, % 
@@ -292,7 +291,8 @@ a
 97, 61, 141
 
 ################################################
-
+"""
+"""
 8. string formatting
 
 name                     >>       string formatting
@@ -307,7 +307,8 @@ description              >>
 
 2. f         >>>          --->       f"{f1}  {f2}  {f3}"
 
-
+"""
+"""
 3. format methods  ( f, a, t )
    >>   :
    >>   fill charactor (" ")
@@ -472,6 +473,14 @@ description              >>       1. print str value
                                   4. keyword arguments      --->   by key name
                                      for print()            --->   end, sep, file, flush ( in time )
 
+
+
+r = open("C:\\Users\\User\\PycharmProjects\\basics\\practice.py", "r")
+f = open("abc.py", "w")
+e = "\n" + "- " * 30
+
+print(*r.readlines(), file=f)
+
 x = 1
 y = 1.1
 z = "apple"
@@ -528,9 +537,11 @@ description              >>        1. Access items
                                         >>> indexing ( +, -)
                                         >>> slicing ( +, -)
                                         >>> object
-
+                                   
+                                   # record
                                    13. copy a list ---> copy()  ---> method  
                                                    ---> list()
+                                                   ---> slicing  ---> l[:]
                                    14. join lists ---> +          ---> list to list
                                                   ---> loop and append()
                                                   ---> extend()   ---> list to iterable obj
@@ -540,9 +551,19 @@ description              >>        1. Access items
 
 1. user input fruit
 2. check fruit in our store
-3. reply          
+3. reply     
+5 
 
-x = [1, 2, "banana", 3, 4, "orange", 2.0] # 001
+x  --->  001  ---> 0010, 0011, 0017, 0013, 0014, 0015, 0016, 0017
+mangoes ---> 0017
+
+x = [1, 2, "banana", 3, 4, "orange", 2.0]  # 001
+z = [10, 11, 12]
+
+for i in x:
+    if type(i) is int:
+        z.append(i)
+print(z)
 
 int_list = []
 str_list = []
@@ -556,6 +577,11 @@ for i in x:
 print(int_list)
 print(str_list)
 
+x = ["a", 'b', 'c', 'A', 'B', 'C']  # 95, 96, 97, 65, 66, 67
+
+x.sort()  # 65, 66, 67, 95, 96, 97 # 'A', 'B', 'C', "a", 'b', 'c'
+print(x)
+
 ################################################
 
 17. boolean data type
@@ -566,6 +592,7 @@ usage                    >>       True, False
 description              >>       1. expression with boolean result  
                                      --->   x = True, x = 1 < 2
                                   2. comparison operators produce boolean result ( >, <, >=, <=, ==, != ) ( in,  not in )
+
 
 ################################################
 
@@ -579,7 +606,7 @@ note
 
 19. Simple if Statement
 
-name                     >>       if, if Statement, conditional sttements   
+name                     >>       if, if Statement, conditional statements   
 definition               >>       translate with conditions
 usage                    >>       if conditions:
 description              >>       1. If condition is True, translate the conditional code (block of codes)
@@ -587,12 +614,24 @@ description              >>       1. If condition is True, translate the conditi
 Note
 Example . 1, 2,3
 
-if c:
-    print("paln.A")
-    print("a")
+
+
+password = int(input("password : "))
+
+if password == 123456:
+    print("login successful.")
 
 else:
+    print("incorrect password.")
+
+
+c = True
+if c:
+    print("paln.A")
+    
+else:
     print("paln.B")
+
 
 if 1 < 2:
     print("1 is less than 2.")
@@ -600,12 +639,14 @@ if 1 < 2:
     print("third line.")
     print()
 
-print("statement")    
+print("statement")
 
 n1 = int(input("n1 = "))
 n2 = int(input("n2 = "))
-if n1 < n2:
+if n1 < n2: 
     print(f"{n1} is less than {n2}.")
+else: 
+    print(f"{n1} is not less than {n2}.")
 
 ################################################
 
@@ -614,23 +655,26 @@ if n1 < n2:
 name                     >>       else   
 definition               >>       translate with conditions
 usage                    >>       else:
-description              >>       1. if condition is False, translate code (block of codes)
+description              >>       1. If condition is False, translate code (block of codes)
 
 Note
+
 
 n1 = int(input("n1 = "))
 n2 = int(input("n2 = "))
 
-c1 = n2 < n1
+c1 = n1 > n2
 c2 = n1 < n2
 
-if c1:print(f"{n1} is greater than {n2}.")
+if c1:
+    print(f"{n1} is greater than {n2}.")
+else:
+    print(f"{n1} is not greater than {n2}.")
 
-else:print(f"{n1} is not greater than {n2}.")
-
-if c2:print(f"{n1} is less than {n2}.")
-
-else:print(f"{n1} is not less than {n2}.")
+if c2:
+    print(f"{n1} is less than {n2}.")
+else:
+    print(f"{n1} is not less than {n2}.")
 
 ################################################
 
@@ -638,25 +682,29 @@ else:print(f"{n1} is not less than {n2}.")
 
 notes
 
-c1 = 1 # water sensor.2  ( low level ) ( True )
-c2 = 0 # electric ( true )
-c3 = 0 # short curcit ( false )
-c4 = 0 # water sensor.1  ( low level ) ( True )
+
+|_---> sensor.1
+|
+|_---> sensor.2
+|_________
+
+c1 = 1  # water sensor.2  ( low level ) ( True )
+c2 = 1  # electric ( true )
+c3 = 0  # short curcit ( false )
+c4 = 1  # water sensor.1  ( high level ) ( True )
 
 if c1:
     if c2:
         if c3:
             print("message motor error")
         else:
-            print("motot --->  water 1")
+            print("mototr --->  water 1")
     else:
         print('generator --> electric')
         if c3:
             print("message motor error")
             print("close generator")
-
-
-       else:
+        else:
             print("motot --->  water 2")
 
 ################################################
@@ -695,18 +743,23 @@ elif m >= 80: print("good")
 elif m >= 40: print("not bad")
 elif m < 40: print("fail")
 
+c1 = m == 100
+c2 = m >= 80
+c3 = m >= 40
+c4 = m < 40
 # know
 if c1: print("very good.")
 if not c1 and c2: print("good")
 if not c1 and not c2 and c3: print("not bad")
 if not c1 and not c2 and not c3 and c4: print("fail")
 
+m = int(input("marks = "))
 
 if m == 100: print("very good.")
 
 if 100 > m >= 80: print("good")
 
-if 40 <= m < 80 : print("not bad")
+if 40 <= m < 80: print("not bad")
 
 if m < 40: print("fail")
 
@@ -756,14 +809,14 @@ n2 = int(input("n2 = "))
 if n1 < n2:
     pass
 
-
 else:
     pass
 
+
 ################################################
 
-x = 1 + 2
-
+x = 1 - 2
+3
 25. Conditional Expressions  ( if else operator, ternary operator )
 
 name                     >>       conditional Expressions, if else operator, ternary operator 
@@ -772,11 +825,14 @@ usage                    >>       value_1 condition value_2
 description              >>       
 notes
 
+
+
 x = int(input("x = "))
 
 even_odd = "even" if x % 2 == 0 else "odd"
 
 print(f"{x} is {even_odd}.")
+
 
 ################################################
 ################################################
@@ -786,7 +842,7 @@ print(f"{x} is {even_odd}.")
 notes
 1. boolean operator       --->   not, and, or
 2. operator precedence    --->   p, e, u, * / // %, +-, 
-                                 < > ==, 
+                                 < > == <= >=, 
                                  not, and, or,
 
                                  =
@@ -799,6 +855,15 @@ notes
 # False or   True     or   True
 # True    or   True
 # True ( l )
+
+c1 = True
+c2 = False
+c3 = False
+
+is_ready = c1 or c2 or c3
+
+print(is_ready)
+
 
 ###########
 
@@ -845,6 +910,7 @@ def under_age(age):
 amount = int(input("Credit amount : "))
 buyer_age = int(input("age : "))
 
+
 if not less_credit(amount) and not under_age(buyer_age):
     print("You can buy Beer.")
 
@@ -862,10 +928,11 @@ note
 
 use round function before comparing floating points  --->  1 - 1/3 -1/3 -1/3 == 0   --->    round(1 - 1/3 -1/3 -1/3, 3) == 0 
 
+result = 1 - 1/3 - 1/3 - 1/3
+print(round(result, 6) == 0)
 
 result = 1 - 1/3 -1/3 -1/3
 print(round(result, 6) == 0)
-
 
 1.1102230246251565e-16
 0.00000000000000011102230246251565
@@ -878,8 +945,9 @@ print(round(result, 6) == 0)
 
 
 x = int(input("x = "))
-if x < 1 and x > 10:
+if x > 1 or x < 10:
     print(f"{x} is between 1 and 10.")
+
 
 ################################################
 
