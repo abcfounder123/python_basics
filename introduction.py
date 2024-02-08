@@ -10,18 +10,6 @@
 
 #################################################
 
-1. basic syntax
-2. advance syntax
-3. semantics
-4. create
-
-1. control flow
-2. OOP, FP
-3. algorithms, design patterns
-
-#################################################
-"""
-"""
 # programming
 # computer programming
 # data ---> voice, charactor, number, photo, video, file....
@@ -35,15 +23,14 @@ print(ans)
 
 #################################################
 
-# x = str()
-# print(len(dir(x)))  # str --> 81, 74, 48, 35, 46, 57
+x = str()
+print(len(dir(x)))  # 81, 74, 48, 35, 46, 57
 
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
  '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__',
  '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__',
  '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__',
- '__sizeof__', '__str__', '__subclasshook__', 
- 'capitalize', 'casefold', 'center', 'count', 'encode',
+ '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode',
  'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii',
  'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle',
  'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix',
@@ -56,7 +43,7 @@ print(ans)
 # algorithms
 
 # data
-# built-in data type
+# built-in data
 # custom data
 
 # pseudocode
@@ -71,7 +58,6 @@ print(ans)
 #################################################
 
 # code
-
 f = int(input("Degree Fahrenheit : "))
 c = (f - 32) * 5 / 9
 print("Degree Celsius =", c)
@@ -98,7 +84,6 @@ def x():
     c = (f - 32) * 5 / 9
     print("Degree Celsius =", c)
 
-
 f = 100
 x()
 
@@ -112,7 +97,7 @@ x()
 
 # pure function
 
-def x(f):
+def x(f=32):
     c = (f - 32) * 5 / 9
     print("Degree Celsius =", c)
 
@@ -124,7 +109,6 @@ x(212)
 #################################################
 
 # alias
-
 y = a = b = x
 y(100)
 a(150)
@@ -141,28 +125,12 @@ b(212)
 
 # parameter
 # default parameter
-# standard form
-# /
-# *
 
 # argument
 # default argument
 # positional argument
 # keyword arguments
 
-
-def x(*, f):
-    c = (f - 32) * 5 / 9
-    print("Degree Celsius =", c)
-
-
-x(f=212)
-
-
-x(212)
-
-
-strip(chars=None, /)
 #################################################
 
 programming paradigm
@@ -252,14 +220,12 @@ calculate_fahrenheit(celsius=100)
 
 #################################################
 
-
 def say_hello(name):
     print("Hello, I'm", name)
 
 say_hello("Mg Mg")
 say_hello(70)
 say_hello("Aung Net")
-
 
 #################################################
 
@@ -270,13 +236,11 @@ class Human:
     def say_hello(self):
         print("Hello, I'm", self.name)
 
-
 p1 = Human(name="Mg Mg")
-p2 = Human("Ma Ma")
+p2 = Human(name="Ma Ma")
 
 p1.say_hello()
 p2.say_hello()
-
 
 ################################################
 
@@ -310,9 +274,6 @@ class Dog:
     def bite(self):
         print(self.name, "bite.")
 
-    def say_hello(self):
-        print("dong sound")
-
 mg_mg = Human(name="Mg Mg")
 age = Age(70)
 aung_net = Dog("Aung Net")
@@ -320,11 +281,9 @@ aung_net = Dog("Aung Net")
 mg_mg.say_hello()
 print(age.is_retire())
 aung_net.bite()
-aung_net.say_hello()
 
 print(age + 1)
 print(age.__add__(1))
-
 
 #################################################
 
@@ -350,12 +309,8 @@ help(age)
 
 ################################################
 
-
-
-
 class Kg:
     "Kilogram ---> weight in metric unit"
-
     def __init__(self, w):
         self.weight = w
 
@@ -363,15 +318,14 @@ class Kg:
         return str(self.weight) + " kg"
 
     def __add__(self, other):
-        if isinstance(other, Kg):
+        if "kg" in other.__str__():
             return Kg(self.weight + other.weight)
-        elif isinstance(other, Lb):
+        elif "lb" in other.__str__():
             return Kg(self.weight + (other.weight / 2.2))
 
 
 class Lb:
     "Pound ---> weight in SI unit"
-
     def __init__(self, w):
         self.weight = w
 
@@ -379,9 +333,9 @@ class Lb:
         return str(self.weight) + " lb"
 
     def __add__(self, other):
-        if isinstance(other, Lb):
+        if "lb" in other.__str__():
             return Lb(self.weight + other.weight)
-        elif isinstance(other, Kg):
+        elif "kg" in other.__str__():
             return Lb(self.weight + (other.weight * 2.2))
 
 
@@ -389,10 +343,6 @@ kg = Kg(1)
 lb = Lb(4.4)
 print(kg + lb)
 print(lb + kg)
-
-print(kg + kg)
-
-
 
 ################################################
 
@@ -411,8 +361,6 @@ print(math.pi)
 
 # creating custom literal
 # for education purpose
-
-
 from custom_literals import literal
 
 
@@ -470,14 +418,14 @@ def lb(self):
 
 if __name__ == "__main__":
 
-    x = Kg(2)  # normal
+    x = Kg(2) # normal
     y = Lb(2.2)
     print(f"{x} + {y} = {x.__sub__(y)}")
     print(f"{y} + {x} = {y.__sub__(x)}")
 
     print(" -" * 30)
 
-    x = 2 .kg  # literal
+    x = 2 .kg # literal
     y = 2.2 .lb
     print(f"{x} + {y} = {x - y}")
     print(f"{y} + {x} = {y - x}")
@@ -491,4 +439,3 @@ print(x + y)
 print(y + x)
 
 """
-

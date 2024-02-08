@@ -1,1 +1,0 @@
-X = "APPLE"\NY = 10\NPRINT(X * Y)
