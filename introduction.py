@@ -13,6 +13,7 @@
 # programming
 # computer programming
 # data ---> voice, charactor, number, photo, video, file....
+
 # input data
 # control flow
 # output data
@@ -23,14 +24,30 @@ print(ans)
 
 #################################################
 
-x = str()
+1. syntax
+2. semantic
+3. built
+
+1. control flow
+2. design pattern  ( distinction )
+3. algorithm       ( daily study )
+
+1. paradigm
+- imperative
+- declarative
+
+x = "xxxxxApplexxx"
 print(len(dir(x)))  # 81, 74, 48, 35, 46, 57
 
+
+%
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
  '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__',
  '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__',
  '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__',
- '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode',
+ '__sizeof__', '__str__', '__subclasshook__', 
+ 
+ 'capitalize', 'casefold', 'center', 'count', 'encode',
  'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii',
  'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle',
  'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix',
@@ -43,8 +60,8 @@ print(len(dir(x)))  # 81, 74, 48, 35, 46, 57
 # algorithms
 
 # data
-# built-in data
-# custom data
+1. built-in data
+2. custom data
 
 # pseudocode
 # input F
@@ -58,6 +75,7 @@ print(len(dir(x)))  # 81, 74, 48, 35, 46, 57
 #################################################
 
 # code
+
 f = int(input("Degree Fahrenheit : "))
 c = (f - 32) * 5 / 9
 print("Degree Celsius =", c)
@@ -80,9 +98,11 @@ print("Degree Celsius =", c)
 
 # function
 
+
 def x():
     c = (f - 32) * 5 / 9
     print("Degree Celsius =", c)
+
 
 f = 100
 x()
@@ -339,10 +359,22 @@ class Lb:
             return Lb(self.weight + (other.weight * 2.2))
 
 
-kg = Kg(1)
-lb = Lb(4.4)
-print(kg + lb)
-print(lb + kg)
+x = Kg(1)
+y = Lb(4.4)
+print(x + y)
+print(y + x)
+
+
+x = int(1)
+y = float(4.4)
+print(x + y)
+print(y + x)
+
+
+x = 1
+y = 4.4
+print(x + y)
+print(y + x)
 
 ################################################
 
@@ -361,6 +393,7 @@ print(math.pi)
 
 # creating custom literal
 # for education purpose
+
 from custom_literals import literal
 
 
@@ -418,14 +451,14 @@ def lb(self):
 
 if __name__ == "__main__":
 
-    x = Kg(2) # normal
+    x = Kg(2)  # normal
     y = Lb(2.2)
     print(f"{x} + {y} = {x.__sub__(y)}")
     print(f"{y} + {x} = {y.__sub__(x)}")
 
     print(" -" * 30)
 
-    x = 2 .kg # literal
+    x = 2 .kg  # literal
     y = 2.2 .lb
     print(f"{x} + {y} = {x - y}")
     print(f"{y} + {x} = {y - x}")
@@ -439,3 +472,4 @@ print(x + y)
 print(y + x)
 
 """
+

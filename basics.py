@@ -1,9 +1,5 @@
+
 """
-
-1. input data 
-2. calculate data 
-3. output data
-
 ################################################
 
 Data types ( built-in , custom )
@@ -186,10 +182,10 @@ description              >>       1. continuous values( 17 )
 # 1. continuous values( 17 )
 x = 1.234567890123456789
 print(x)
+print(4 / 2)
 
 
 import sys
-
 print(sys.float_info.max)
 
 
@@ -223,14 +219,13 @@ e-308 =
 
 name                     >>      str, string, string literal
 definition               >>      charactor string
-
-usage                    >>      ' ',  " ", '''  ''', """  """,
+usage                    >>      ' ',  " ", '''  ''', """  """
 description              >>      1. 47 methods (upper, lower), 
-                                 2. concatination ( + ), 
+                                 2. concatenation ( + ), 
                                  3. replication   ( * ) ( n th times )
-                                 4. multiline string, preformatted string, doc string   --->   """   """    ,    '''   '''
-                                                                            --->  auto complete \n
-                                 5. indexing ( +, - )
+                                 4. multiline string, preformatted string, doc string ---> """  """, '''   '''
+                                                                                      --->  auto complete \n
+                                 5. indexing ( +, - )  # practice.1
                                  6. slicing ( +, - ) ( + & - )
                                  7. [start:stop:step] [s:p:1]
                                  8. step ( +, - )
@@ -239,8 +234,46 @@ description              >>      1. 47 methods (upper, lower),
                                  11. lower()
                                  12. split()
 
+
+
+def mylower(s):
+    l = ""
+    for c in s:
+        u = ord(c)
+        if 65 <= u <= 92:
+            l += chr(u + 32)
+        else:
+            l += c
+    return l
+
+
+s = "ABCD"
+print(s.lower())
+print(mylower(s))
+
+s = "A"
+l = chr(ord(s) + 32)
+print(s, l)
+
+s = "APPLEapple123apple"
+l = ""
+for c in s:
+    u = ord(c)
+    if 65 <= u <= 92:
+        l += chr(u + 32)
+    else:
+        l += c
+
+print(l)
+print(s.lower())
+print(s.replace("apple", "banana"))
+
+print("1" + "1")  # '11'  "ab"
+print("a" * 10)
+print("1" * 10)  # 1111111111
+
 x = "abcfounder@gmail.com"
-user_name, domain = x.split("@")
+user_name, domain = x.split("@")  # ["abcfounder", "gmail.com"]
 print(user_name)
 print(domain)
 
@@ -303,8 +336,10 @@ description              >>
 1. format()  >>>   positional argument    --->       "{}  {}  {}".format("apple", "banana", "orange")
                                           --->       "{2}  {1}  {0}".format("apple", "banana", "orange")
                                           --->        index error
-             >>>   keyword argument       --->       "{f1}  {f2}  {f3}".format(f1="apple", f2="banana", f3="orange")
+"""
+#             >>>   keyword argument      --->       "{f1}  {f2}  {f3}".format(f1="apple", f2="banana", f3="orange")
 
+"""
 2. f         >>>          --->       f"{f1}  {f2}  {f3}"
 
 
@@ -319,26 +354,12 @@ description              >>
 total = 3
 range ---> -3, ...,  2
 
-h1 = "No"
-h2 = "Name"
-h3 = "age"
-x = f"|{h1:^6}|{h2:^30}|{h3:^7}|"
-print("-" * 47 )
-print(x)
-print("-" * 47 )
 
-l = [(1, "Mg Mg", 20),
-     (2, "Mg Aung Myint Myat", 30),
-     (3, "Mg Mg", 20),
-     (4, "Mg Aung Myint Myat", 30),
-     (5, "Mg Mg", 20),
-     (6, "Mg Aung Myint Myat", 30),
-     ]
-for i in l:
-    no, name, age = i
-    r = f"|{no:^6}|{name:^30}|{age:^7}|"
-    print(r)
-    print("-" * 47)
+x = "{}  {}  {}"
+print(x.format("apple", "banana", "orange"))
+
+
+practice.2   --->   format table
 
 ################################################
 
@@ -375,9 +396,22 @@ Note
 10. assignment operator
 
 name                     >>       assignment operator
-definition               >>       assign right ( value ) to left ( identifier )
+definition               >>       assign right ( obj ) (memory address) to left ( identifier )
 usage                    >>       =
-description              >>       += , -=, *=, /=  မူလတန်ဖိုးကိုပဲ ထပ်ပေါင်းချင်ရင်သုံး
+description              >>       += , -=, *=, /=, //=, %=  မူလတန်ဖိုးကိုပဲ ထပ်ပေါင်းချင်ရင်သုံး
+
+x = 100
+print(id(x))
+
+x = x + 1
+x += 1
+print(id(x))
+
+x = 100
+print(id(x))
+
+x = 101
+print(id(x))
 
 ################################################
 
@@ -388,9 +422,10 @@ definition               >>
 usage                    >>       #
 description              >>       python will ignore all lines with the first charactor #
 
-# print(1)
-# print(2)
 
+"""
+
+"""
 ################################################
 
 12.                           
@@ -420,11 +455,13 @@ c = float(input("Enter degree C = "))
 f = (c * 9 / 5) + 32
 print(f"Degree F value = {f:.2f}")
 
+
 from tkinter import *
 
 root = Tk()
 degree_f = DoubleVar(root)
 degree_c = DoubleVar(root)
+
 
 def cal():
     x = float(degree_f.get())
@@ -452,7 +489,7 @@ note
 4. root2        --->      **(1/2)                            
    root3        --->      **(1/3)
 
-16 = 2 * 2 * 2 * 2 = 2**4
+16 = 2 * 2 * 2 * 2 = 2 ** 4
 
 4 ** 2
 
@@ -471,6 +508,8 @@ description              >>       1. print str value
                                   3. positional arguments,
                                   4. keyword arguments      --->   by key name
                                      for print()            --->   end, sep, file, flush ( in time )
+
+help(print)
 
 x = 1
 y = 1.1
@@ -636,28 +675,8 @@ else:print(f"{n1} is not less than {n2}.")
 
 21. Nested if
 
-notes
-
-c1 = 1 # water sensor.2  ( low level ) ( True )
-c2 = 0 # electric ( true )
-c3 = 0 # short curcit ( false )
-c4 = 0 # water sensor.1  ( low level ) ( True )
-
-if c1:
-    if c2:
-        if c3:
-            print("message motor error")
-        else:
-            print("motot --->  water 1")
-    else:
-        print('generator --> electric')
-        if c3:
-            print("message motor error")
-            print("close generator")
-
-
-       else:
-            print("motot --->  water 2")
+practice.3   --->   Nested if
+practice.4   --->   automatic water motor controller
 
 ################################################
 
@@ -666,7 +685,7 @@ if c1:
 name                     >>       elif ( else if )
 definition               >>       translate with conditions
 usage                    >>       elif conditions:
-description              >>       If above condition is not true, check this again.
+description              >>       If above condition is not true, check new condition again.
                                       1. if first condition is not true, check second condition.
                                       2. if second condition is not true, check third condition.
                                          . . .
@@ -688,27 +707,7 @@ elif n1 == n2:
 
 ################################################
 
-m = int(input("marks = "))
-
-if m == 100: print("very good.")
-elif m >= 80: print("good")
-elif m >= 40: print("not bad")
-elif m < 40: print("fail")
-
-# know
-if c1: print("very good.")
-if not c1 and c2: print("good")
-if not c1 and not c2 and c3: print("not bad")
-if not c1 and not c2 and not c3 and c4: print("fail")
-
-
-if m == 100: print("very good.")
-
-if 100 > m >= 80: print("good")
-
-if 40 <= m < 80 : print("not bad")
-
-if m < 40: print("fail")
+practice.4   --->   elif ( exam fail/pass with marks )
 
 ################################################
 
@@ -756,13 +755,12 @@ n2 = int(input("n2 = "))
 if n1 < n2:
     pass
 
-
 else:
     pass
 
 ################################################
 
-x = 1 + 2
+x = 1 + 2  = 3
 
 25. Conditional Expressions  ( if else operator, ternary operator )
 
@@ -785,7 +783,7 @@ print(f"{x} is {even_odd}.")
 
 notes
 1. boolean operator       --->   not, and, or
-2. operator precedence    --->   p, e, u, * / // %, +-, 
+2. operator precedence    --->   p, e, u, * /, +-, 
                                  < > ==, 
                                  not, and, or,
 
@@ -793,7 +791,15 @@ notes
                                  p, e, u, */, +-, c, b     
 
                                  (not, and, or)
-3. operator asociativity  --->   left to right  ( left sided bind )
+3. operator associativity  --->   left to right  ( left sided bind )
+4. or --> True  -->  first T
+5. and ---> False -->  first F
+False or   True
+
+not True = False
+
+print(True or not True and False or not True and True or False)
+
 
 # 0     or   [1, 2]   or  [1, 3]
 # False or   True     or   True
@@ -802,57 +808,7 @@ notes
 
 ###########
 
-# step.1 ( accept any ) ( or )
-
-c = input("paid class feee : ")
-c2 = input("member : ")
-c3 = input("fund : ")
-
-if c or c2 or c3:
-    print("access class")
-
-###########
-
-# step.2 ( accept all ) ( and )
-c = input("operator check : ")
-c2 = input("Engine check : ")
-c3 = input("Rocket check : ")
-c4 = input("Weather check : ")
-
-if c and c2 and c3 and c4:
-    print("Rocket is ready to lunch.")
-
-###########
-
-# step.3 ( accept one + accept all ) ( or + and )
-c = input("paid class feee : ")
-c2 = input("member : ")
-
-c3 = input("fund : ")
-
-if (c or c2) and c3:
-    print("access special class")
-
-###########
-
-# step.4 ( not )
-def less_credit(n):
-    return n < 11000
-
-def under_age(age):
-    return age <= 18
-
-amount = int(input("Credit amount : "))
-buyer_age = int(input("age : "))
-
-if not less_credit(amount) and not under_age(buyer_age):
-    print("You can buy Beer.")
-
-if less_credit(amount) or under_age(buyer_age):
-    print("You can not buy Beer.")
-
-
-print(0 or [1, 2] or [1, 3]) 
+practice.6   --->    boolean exercises
 
 ################################################
 
@@ -885,88 +841,13 @@ if x < 1 and x > 10:
 
 29. boolean exercises
 
-c1 = True
-c2 = True
-c3 = True
-
-# all true---> and
-if c1 and c2 and c3:
-    print("All are True.")
-
-if not c1 and not c2 and not c3:
-    print("all false.")
-
-
-# at least one true ---> or
-if c1 or c2 or c3:
-    print("At least one is true.")
-
-if not c1 or not c2 or not c3: 
-    print("At least one is fasle.")
-
-################################################
-
 # list, if, elif, else, boolean expression( 1 > 2 , True and True ), conditional executions / statement,
 # conditional expression ( ternary operator )
 
-################################################
-
-# order
-
-# and, or
-# all ---> name, color, size, item count, payment
-# at least one ---> bank card or cash on delivery
-
-# delivery
-# must do ---> address confirm, ph No confirm
-
-################################################
-
-orders = []
-delivery = []
-
-name = input("Item name : ")
-color = input("Item color : ")
-size = input("Item size : ")
-count = input("Item count : ")
-
-bank_card = input("card payment confirm : ")
-cash_on_delivery = input("COD confirm : ")
-
-payment = bank_card if bank_card else cash_on_delivery
-
-order = name and color and size and count and (bank_card or cash_on_delivery)
-
-if order:
-    new = [name, color, size, count, payment] # ['shirt', 'blue', 'M', '2', 'COD']
-    orders.append(new)
-    print(orders)
-    address = input(f"Please confirm address and ph No for {new} : ")
-
-    if address:
-        delivery.append([new, address]) # [[['shirt', 'blue', 'M', '2', 'COD'], 'Mandalay, no.1 street, 09111111']]
-        print(delivery)
-        print(f"{new} will be send to {address} by delivery partner kerry in one week.")
-
-################################################
-
-# comparison operator, membership operator and boolean operator
-# c1 > c2
-# c3 > c4
-# c5 in c6
-
-min_age = 18
-amount = 3000
-stock_list = ["beer", "white wine", "Rum"]
-
-age = int(input("age = "))
-bank_card = int(input("Bank card: "))
-item = input("item : ")
-
-order = age > min_age and bank_card > amount and item in stock_list 
-print(order)
-if order:
-     print("Ok")
+practice.6   --->    boolean exercises
+practice.7   --->   order
+practice.8   --->   beer
+practice.9   --->   palindrome check
 
 ################################################
 
@@ -974,7 +855,7 @@ if order:
 
 name                     >>       dict, dictionary
 definition               >>       list of keys and values
-usage                    >>       {0 : "apple", }, dict()
+usage                    >>       {}, {0 : "apple", }, dict()
 description              >>       1. Access items               --->    d[key], keys(), values(), items()
                                   2. change item value          --->    d[key] = value
 
@@ -1003,248 +884,94 @@ description              >>       1. Access items               --->    d[key], 
 
 ################################################
 
-item_list
+l = ["Mg Mg", 20, "0995443300"]
+print(l[1])
 
-No   item     price    stock  exp_date  discount_price   cash back
-1.   apple    1        1000   15         0.3
-2.   note 11  200      10       _        0                10
-3.
+d = {0: "Mg Mg", 1: 20, 2: "0995443300", -3: "Mg Mg", -2: 20, -1: "0995443300"}
+print(d[-1])
 
+user1 = {"name": "Mg Mg", "age": 20, "phNo": "0995443300"}
+print(user1)
+print(user1["age"])  # access
+print(list(user1))   # user1 ---> user1.keys()
+print(user1.keys())
+print(user1.values())
+print(user1.items())
 
-item_list[row]["price"] += 1
-
-x = ["apple",
-     1000,
-     10000]
-
-item_list = {
-    1: {"item": "apple",
-        "price": 1,
-        "exp_date": 5,
-        "stock": 10000},
-
-    2: {"item": "note 11",
-        "price": 200,
-        "exp_date": 100,
-        "stock": 10},
-
-    3: {"item": "note 12",
-        "price": 250,
-        "exp_date": 100,
-        "stock": 50},
-
-    4: {"item": "banana",
-        "price": 0.3,
-        "exp_date": 10,
-        "stock": 12000}
-}
-
-################################################
-
-# 4. del
-#del item_list[1]["exp_date"]
-for i in item_list:
-    del item_list[i]["exp_date"]
-print(item_list)
-
-item_list.clear()
-print(item_list)
-
-#del item_list
-
-################################################
-
-# 3. add new item
-# item_list[1]["discount_price"] = 0.3
-
-for i in item_list:
-    if item_list[i]["exp_date"] <= 10:
-        item_list[i]["discount"] = item_list[i]["price"] * 30 / 100
-    else:
-        item_list[i]["discount"] = 0
-
-    if item_list[i]["price"] >= 200:
-        item_list[i]["cash back"] = item_list[i]["price"] * 5 / 100
-    else:
-        item_list[i]["cash back"] = 0
-
-print(item_list)
-
-################################################
-
-# 2. change value
-#item_list[1]["price"] = 0.7
-for i in item_list:
-    if "note" in item_list[i]["item"]:
-        item_list[i]["price"] -= item_list[i]["price"] * 10 / 100
-
-print(item_list)
-#print(item_list[3]["price"])
-
-################################################
-
-# 1. access
-order = []
-order_list = ["apple", "banana", "beer"]
-for k in item_list:
-    if item_list[k]["item"] in order_list:
-        order.append(item_list[k])
-
-print(order)
-
-################################################
-
-################################################
-
-d = {
-       "item": "apple",
-       "price": 1,
-       "exp_date": 5,
-       "stock": 10000
-}
-
-# d[key], keys(), values(), items()
-
-# d["item"]  # key index
-k = ['item', 'price', 'exp_date', 'stock'] # keys()
-v = ['apple', 1, 5, 10000] # values()
-i = [('ite', 'apple'), ('pric', 1), ('exp_date', 6), ('stock', 100)] # items()
-
-################################################
+# change
+user1["name"] = "Ma Ma"
+# add
+user1["Email"] = "mama@gmail.com"
+print(user1)
 
 # loop
-for k in d:
-    print("keys =", k, end=", ")
-    print("values =", d[k])
+for i in user1:   # user1 ---> user1.keys()
+    print(i)
 
-for k, v in d.items():
-    print("keys =", k, end=", ")
-    print("values =", v)
+print()
 
-################################################
+for i in user1.keys():
+    print(i)
+    
+print()
 
-# update / join two dict with loop
-d = {
-       "item": "apple",
-       "price": 1,
-       "exp_date": 5,
-       "stock": 10000
-}
-d2 = dict()
+for i in user1.values():
+    print(i)
 
-for k, v in d.items():
-    d2[k] = v
-    print(d2)
+print()
 
-################################################
+# step.1
+for i in user1.items():  # (k, v)
+    print(i)
 
-2D
-x, y = col, row
+print()
 
-item_list
-No   item     price    stock  exp_date  discount_price   cash back
-1.   apple    1        1000   10         0.3               0
-2.   note 11  200      10       _        0                 10
-3.
+# step.2
+for i in user1.items():
+    k = i[0]
+    v = i[1]
+    print(k, "=", v)
 
-################################################
+print()
 
-item_list = {
-   1: {"item": "apple",
-       "price": 1,
-       "exp_date": 5,
-       "stock": 10000},
+# step.3
+for i in user1.items():
+    k, v = i
+    print(k, "=", v)
 
-   2: {"item": "note 11",
-       "price": 200,
-       "exp_date": 100,
-       "stock": 10},
+print()
 
-   3: {"item": "note 12",
-       "price": 250,
-       "exp_date": 100,
-       "stock": 50},
+# step.4
+for k, v in user1.items():
+    print(k, "=", v)
 
-   4: {"item": "banana",
-       "price": 0.3,
-       "exp_date": 10,
-       "stock": 12000}
-}
+print("Ma Ma" in user1.values())
+print("Email" in user1.keys())
 
-################################################
+user1 = {"name": "Mg Mg", "age": 20, "phNo": "0995443301", "email": "mgmg@gmail.com"}
+user2 = {"name": "Ma Ma", "age": 21, "phNo": "0995443302", }
+user3 = {"name": "Mya Mya", "age": 30, "phNo": "0995443303", }
 
-# 1. access
-order = []
-order_list = ["apple", "banana", "beer"]
-for k in item_list:
-   if item_list[k]["item"] in order_list:
-       order.append(item_list[k])
+users = [user1, user2, user3]   # users[-5:]  , [:5], [m-2:m+2] ---> t = 10, m = 5, 3:7 ---> 3, 4, 5, 6
+# name = users[0]["name"]   = 
 
-print(order)
+
+for user in users:
+    if "email" in user:
+        pass
+        # print(user["email"])
+    else:
+        v = input(f"Enter your email({user['name']}): ")
+        user["email"] = v
+
+print(users)
 
 ################################################
 
-# 2. change value
-#item_list[1]["price"] = 0.7
-for i in item_list:
-   if "note" in item_list[i]["item"]:
-       item_list[i]["price"] -= item_list[i]["price"] * 10 / 100
+practice.10   --->   2D  data, nested dict
 
-print(item_list)
-#print(item_list[3]["price"])
-
-################################################
-
-# 2. change value
-for i in item_list:
-   if item_list[i]['exp_date'] < 11:
-       item_list[i]["price"] *= 0.9
-
-print(item_list)
-{1: {'item': 'apple', 'price': 0.9, 'exp_date': 5, 'stock': 10000},
- 2: {'item': 'note 11', 'price': 200, 'exp_date': 100, 'stock': 10},
- 3: {'item': 'note 12', 'price': 250, 'exp_date': 100, 'stock': 50},
- 4: {'item': 'banana', 'price': 0.27, 'exp_date': 10, 'stock': 12000}}
-
-################################################
-
-# 3. add new column
-# item_list[1]["discount_price"] = 0.3
-
-for i in item_list:
-   if item_list[i]["exp_date"] <= 10:
-       item_list[i]["discount"] = item_list[i]["price"] * 0.3
-   else:
-       item_list[i]["discount"] = 0
-
-   if item_list[i]["price"] >= 200:
-       item_list[i]["cash back"] = item_list[i]["price"] * 0.05
-   else:
-       item_list[i]["cash back"] = 0
-
-print(item_list)
-
-{1: {'item': 'apple', 'price': 1, 'exp_date': 5, 'stock': 10000, 'discount': 0.3, 'cash back': 0},
- 2: {'item': 'note 11', 'price': 200, 'exp_date': 100, 'stock': 10, 'discount': 0, 'cash back': 10.0},
- 3: {'item': 'note 12', 'price': 250, 'exp_date': 100, 'stock': 50, 'discount': 0, 'cash back': 12.5},
- 4: {'item': 'banana', 'price': 0.3, 'exp_date': 10, 'stock': 12000, 'discount': 0.09, 'cash back': 0}}
-
-################################################
-
-# 4. del
-#del item_list[1]["exp_date"]
-for i in item_list:
-   del item_list[i]["exp_date"]
-
-print(item_list)
-{1: {'item': 'apple', 'price': 1, 'stock': 10000},
- 2: {'item': 'note 11', 'price': 200, 'stock': 10},
- 3: {'item': 'note 12', 'price': 250, 'stock': 50},
- 4: {'item': 'banana', 'price': 0.3, 'stock': 12000}}
-
-#item_list.clear()
-#print(item_list)
-#del item_list
+practice.11   --->   2D  data with rate formula
+https://drive.google.com/file/d/1vMWvbMAgvsZhRgmV-29wbvgsaWjL4ZZK/view?usp=drivesdk
 
 ################################################
 
@@ -1267,9 +994,9 @@ description              >>       1. Access items               --->    indexing
                                    6. count specific item       --->    count()  # x.count(2)
                                    7. search index              --->    index()  # x.index("banana")
 
-                                   8.delete with del keyword   --->     del object
+                                   8.delete with del keyword   --->     del identifier/ object
 
-                                   9. join tuple                --->    +
+                                   9. join tuple                --->    +  --->  new tuple
 
 Note
 
@@ -1278,15 +1005,35 @@ Note
 
 ###########
 
+t = (1, 2, 2, 2, 3, "banana", 4, 5)
+positive_index = t.index("banana")
+print(positive_index)
+
+total_count = len(t)
+negative_index = (total_count - positive_index)
+print(- negative_index)
+
+################################################
+
 x = ("apple", "apple", "banana", 1, 1, 2, 2, 2)
 
-l = list(x) # ["apple", "apple", "banana", 1, 1, 2, 2, 2]
-del l[-5:] # ['apple', 'apple', 'banana']
+l = list(x)  # ["apple", "apple", "banana", 1, 1, 2, 2, 2]
+del l[-5:]  # ['apple', 'apple', 'banana']
 
-d_t = tuple(l) # ('apple', 'apple', 'banana')
+d_t = tuple(l)  # ('apple', 'apple', 'banana')
 print(x)
 print(l)
 print(d_t)
+
+################################################
+
+x = ("apple", "apple", "banana", 1, 1, 2, 2, 2)
+
+x = list(x)  # ["apple", "apple", "banana", 1, 1, 2, 2, 2]
+del x[-5:]  # ['apple', 'apple', 'banana']
+
+x = tuple(x)  # ('apple', 'apple', 'banana')
+print(x)
 
 ###########
 
@@ -1379,117 +1126,7 @@ description              >>        1. Access items              --->   can not a
 
 ################################################
 
-Solved Examples Using Sets Formulas
-Example 1: 
-In a club, each person plays chess or carrom or both. 
-The number of people who play chess, carrom or both are 11, 12 and 3 respectively. 
-Representing this given information as sets and 
-using the set formulae,
-
-################################################
-
-mg mg, ma ma, aung aung
-
-chess - mg mg, ma ma, aung aung
-c - mg mg, ma ma
-cook - ma ma, aung aung
-w - mg mg, ma ma, aung aung
-
-s = {'mg mg', 'ma ma', 'aung aung', 'mg mg', 'ma ma', 'ma ma', 'aung aung', 'mg mg', 'ma ma', 'aung aung'}
-print(s)
-
-10   -->  -2, -3, -2   -->   3
-
-23 - 3 = 20
-
-################################################
-
-Q1.  total people in club
-
-let p is chess group
-let q is carrom group
-
-n(p) = 11
-n(q) = 12
-n(p ∩ q) = 3
-
-Applying the set formula,  
-n(P ∪ Q) = n(P) + n(Q) - n(P∩Q) = 11 + 12 - 3 = 20
-
-Answer: total people in club = 20
-
-################################################
-
-# introduction 
-
-# let each person has club id No.1 or 2 or 3
-# 3 person like both of chess and carrom
-# let id of 3 person be 1, 5, 7
-
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
-
-#print(len(q))
-
-x = p.intersection(q)# (P ∩ Q)
-
-print("id of people who like both = ", end="")
-print(x)
-
-print(len(x))# n(P∩Q) --> len(P & Q)
-print()
-
-ans = p.union(q)  # (P ∪ Q)
-print("id of total people in club = ", end="")
-print(ans)
-print(len(ans))# n(P∪Q) total person  ---> len(P | Q)
-print()
-
-################################################
-
-#Q1.  total people in club
-#  | ---> union
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
-
-print("Q1.  number total people in club =", len(p | q))
-print("Q1.  names of total people in club =", p | q)
-
-################################################
-
-Q2. who like to play chess only
-
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
-
-# number of  who like to play chess only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
-# &  ---> intersection
-print("number of  who like to play chess only  ---> n(p) - n(P ∩ Q) =", len(p) - len(p & q))
-print("names of  who like to play chess only  ---> p - (P ∩ Q) =", p - (p & q))
-
-################################################
-
-Q3. who like to play carrom only
-
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
-
-# number of  who like to play carrom only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
-# &  ---> intersection
-print("number of  who like to play carrom only  ---> n(q) - n(P ∩ Q) =", len(q) - len(p & q))
-print("names of  who like to play carrom only  ---> q - (P ∩ Q) =", q - (p & q))
-
-################################################
-
-# if you do not want to change group data, you can use frozenset.
-p = frozenset({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}) # chess
-q = frozenset({1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}) # carrom
-
-# p.update([21, 22, 23])
-# number of  who like to play chess only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
-# &  ---> intersection
-print("number of  who like to play chess only  ---> n(p) - n(P ∩ Q) =", len(p) - len(p & q))
-print("names of  who like to play chess only  ---> p - (P ∩ Q) =", p - (p & q))
+practice.12   --->   Solved Examples Using Sets Formulas
 
 ################################################
 
@@ -1521,10 +1158,13 @@ print(ans)
 7. Binary Types:	bytes, bytearray, memoryview
 8. None Type:	    NoneType
 
+
 x = None
 print(x)
 
-print(dir(x)) # 25
+print(dir(x))  # 25
+
+
 ['__bool__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__',
  '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
  '__str__', '__subclasshook__']
@@ -1580,7 +1220,8 @@ unordered ---> no index
 mutable   ---> update, delete, assign
 immutable elements  ---> can not ( update, delete, assign )
 
-set1 = {1, 2, 3, (1, 2)}
+
+set1 = {1, 2, 3, {"name": "Mg Mg"}, "apple"}
 print(set1)
 
 s1 = {1, 2, 3, 4, 5}
@@ -1588,12 +1229,38 @@ s2 = {"apple", "banana"}
 m = {frozenset(s1), frozenset(s2)}
 print(m)
 
+l = [1, 2, 3, 4, 5]
+l2 = ["apple", "banana"]
+m = {tuple(l), tuple(l2)}
+print(m)
+
 to make an immutable set, we use the concept of frozenset. 
 s1 = frozenset({1, 2, 3, 4, 5})
 
 ################################################
 
-35. Type casting
+35. Type casting ( implicit, explicit ) ( indirect type casting / type by py, type casting by programmer )
+
+
+x = 1
+y = 1.2
+z = x + y
+print(z)
+
+z = True + 1.2
+print(z)
+
+x = 1
+y = 1.2
+z = x + int(y)
+print(z)
+
+x = 1
+y = 1.2
+z = float(x) + y
+print(z)
+
+################################################
 
 1. int(x [,base]), result = decimal value, int value
 Converts x to an integer. base specifies the base if x is a string.
@@ -1613,6 +1280,7 @@ print(x)
 x = int('100', base=16)
 print(x)
 
+
 x = int('0b100', base=0) # "b" = binary numbering system
 print(x)
 x = int('0O100', base=0) # "O"  = octal numbering system
@@ -1628,30 +1296,34 @@ b = int(input("base :"))
 x = int(c, b)
 print(x)
 
-long x = 10;
+c = input("code No : ")
+x = int(c, 0)
+print(x)
 
 import sys
-x = 1000000000000000000000000000000000000000000000000000000000000  # 28, e16 --> 32 bytes, e30 = 40 bytes, e60 = 52 bytes
 
+x = 1000000000000000000000000000000  # 28, e16 --> 32 bytes, e30 = 40 bytes, e60 = 52 bytes
 print(sys.getsizeof(x))
 
 s = set()  # empty = 216, 4 elements = 216, 5 elements = 472
 
-d = {"name": "Mg Mg"} # 64 , 1 = 184
-print(sys.getsizeof(d))  # empty = 160,
+d = {"name": "Mg Mg"}  # 64 , 1 = 184
+print(sys.getsizeof(d))
 
 x = "apple"
 print(hex(id(x)))
 c = input("code No (0b, 0O, 0x ): ")  # 0x107cd02bb70
 x = int(c, base=0)
 print(x)
-
+  
+  
 2. long(x [,base] )
 Converts x to a long integer. base specifies the base if x is a string.
 
+
 3. float(x)
 Converts x to a floating-point number.
-
+Convert a string or number to a floating point number, if possible.
 s = 5
 f = float(s)
 print(f)
@@ -1662,15 +1334,19 @@ print(a)
 a = 1 + int(2.5) + 4
 print(a)
 
+print(float("100"))
+
+
 4. complex(real [,imag])
 Creates a complex number.
+Create a complex number from a real part and an optional imaginary part.
 
 z = 5 + 3j
 x = 5 + 3j
 print(z)
 print(z.real)
 print(z.imag)
-print(x * z)
+print(x / z)
 
 z = complex(5, 3)
 x = complex(5, 3)
@@ -1679,11 +1355,13 @@ print(z.real)
 print(z.imag)
 print(x * z)
 
+help(z)
+
 5. str(x)
 Converts object x to a string representation
 
 n = 1
-s = str(n) # "1"
+s = str(n)  # "1"
 print(s)
 print(type(s))
 
@@ -1693,6 +1371,24 @@ Converts object x to an expression string.
 x = 1
 print(repr(x))
 
+
+class X:
+    def __str__(self):
+        return "haha"
+
+    def __repr__(self):
+        return f"<basics.X object at {hex(id(self))}>"
+
+
+x = X()
+print(x)
+print(repr(x))
+
+y = X()
+print(y)
+print(repr(y))
+
+
 7. eval(str)
 Evaluates a string and returns an object.
 
@@ -1700,14 +1396,29 @@ s = "1 + 2"
 print(s)
 print(eval(s))
 
+
 8. tuple(s)
 Converts s to a tuple.
+l = [1, 2, 3]
+t = tuple(l)
+print(t)
+
 
 9. list(s)
 Converts s to a list.
 
+d = {'name': 'MG Mg', 'age': 20, 'ph No': '0911112'}
+k = list(d.keys())
+print(k)
+v = list(d.values())
+print(v)
+i = list(d.items())
+print(i)
+
+
 10. set(s)
 Converts s to a set.
+
 
 11. dict(d)
 Creates a dictionary. d must be a sequence of (key,value)
@@ -1716,13 +1427,15 @@ l = [["name", "MG Mg"], ["age", 20], ("ph No", "0911112")]
 d = dict(l)
 print(d)
 
+
 12. frozenset(s)
 Converts s to a frozen set.
+
 
 13. chr(x)
 Converts an integer to a character.
 
-x = 4096
+x = 4097
 print(x)
 y = chr(x)
 print(y)
@@ -1730,8 +1443,10 @@ print(y)
 import sys
 print(sys.getsizeof(y))
 
+
 14. unichr(x)
 Converts an integer to a Unicode character.
+
 
 15. ord(x)
 Converts a single character to its integer value.
@@ -1739,29 +1454,31 @@ Converts a single character to its integer value.
 x = 4096
 print(chr(x))
 
-
 x = "က"
 print(ord(x)) # 4096
 print(hex(ord(x))) # 0x1000
 
 print(ord("a"))
 
+
 16. hex(x)
 Converts an integer to a hexadecimal string.
 
-x = 15
+x = 4096
 h = hex(x)
 print(h)
 print(int(h, base=0))
 
+
 17. oct(x) 
 Converts an integer to an octal string
 
+10
+
 101
 
-x = 8
+x = 16
 print(oct(x))
-
 
 ################################################
 ################################################
@@ -1781,7 +1498,10 @@ oop, obj
 #import m as x
 #from m import pi as mypi
 
+practice.13   --->   square root / ํF to ํC
+
 ################################################
 ################################################
 
 """
+
