@@ -1,3 +1,38 @@
+# 1. int
+# 2. arithmetic expression
+# 3. arithmatic operator
+# 4. operator precedence and associativity
+# 5. floating-point number
+# 6. charactor string ( immutable object )
+# 7. control code ( str )
+# 8. string formatting
+# 9. identifier
+# 10. assignment operator
+# 11.comment
+# 12. errors
+# 13. input function
+# 14. print function
+# 15. algorithms
+# 16. list ( mutable object )
+# 17. boolean data type
+# 18 . Conditional Execution
+# 19. Simple if Statement
+# 20. if/else Statement
+# 21. Nested if
+# 22. if/elif/else Statement ( multi-way decision statement )
+# 23. Versus conditional statements
+# 24. pass
+# 25. Conditional Expressions  ( if else operator, ternary operator )
+# 26. Compound Boolean Expressions
+# 27. Floating-point Equality
+# 28. Errors in Conditional Statements
+# 29. boolean exercises
+# 30. dict
+# 31. tuple
+# 32. set
+# 33.frozenset
+# 34. built-in types
+# 35. type casting
 
 """
 ################################################
@@ -428,7 +463,7 @@ description              >>       python will ignore all lines with the first ch
 """
 ################################################
 
-12.                           
+12. errors                          
 
 name                     >>       errors
 definition               >>
@@ -440,7 +475,7 @@ description              >>       1. syntax error            --->   1name = "Mg 
 
 ################################################
 
-13.
+13. input function
 
 name                     >>       input function
 definition               >>
@@ -498,7 +533,7 @@ print(16 ** (1/4))
 
 ################################################
 
-14.
+14. print function
 
 name                     >>       print function
 definition               >>
@@ -527,9 +562,9 @@ note
 
 ################################################
 
-15.
+15. algorithms
 
-name                     >>       algorithums  
+name                     >>       algorithms  
 definition               >>       planning, creating rules and regulations
 usage                    >>       pseudo code 
 description              >>       pseudo code
@@ -742,7 +777,7 @@ if x.isalnum():print(f"You entered alphanumeric letter \"{x}\".")
 
 ################################################
 
-24. 
+24. pass
 
 name                     >>       pass Statement 
 definition               >>       to pass 
@@ -825,6 +860,7 @@ print(round(result, 6) == 0)
 
 1.1102230246251565e-16
 0.00000000000000011102230246251565
+
 ################################################
 
 28. Errors in Conditional Statements
@@ -1068,7 +1104,7 @@ description              >>        1. Access items              --->   can not a
 
                                    9. clear                     --->    
 
-                                   10. delete with del keyword  --->   del object
+                                   10. delete with del keyword  --->   del label/ object
 
                                    11. add                      --->    an element
                                    12. update                   --->    elements ( x.update(iter))
@@ -1085,16 +1121,23 @@ description              >>        1. Access items              --->   can not a
                                    19. symmetric_difference_update
 
                                    20. isdisjoint               --->    return True if not same value in two sets
-                                   21. issubset                 --->    ex in ey, x.issubset(y)
-                                   22. issuperset               --->    ey in ex, x.issuperset(y)
+                                   21. issubset                 --->    ex in ey, x.issubset(y), self in other
+                                   22. issuperset               --->    ey in ex, x.issuperset(y), other in self
+
 
 x = {1, "apple", 1.2, 2}
 y = {1, 2}
 z = {"apple", 1.2, 1}
 
-a = {1} # subset of x, y, z, b
+a = {1}  # subset of x, y, z, b
 b = {1, "apple", 1.2, 2}
 d = {5, 6, 7, 1, 2}
+
+
+print(x.issuperset(b))
+print(b.issuperset(x))
+print(x.issubset(b))
+print(b.issubset(x))
 
 ################################################
 
@@ -1110,7 +1153,7 @@ description              >>        1. Access items              --->   can not a
                                    4. check not in set          --->    not in
                                    5. count items               --->    len()
 
-                                   6.delete with del keyword    --->    object
+                                   6. delete with del keyword    --->    del label / object
 
                                    7. difference,   -           --->    return, do not change original value
 
@@ -1121,8 +1164,8 @@ description              >>        1. Access items              --->   can not a
                                    10. symmetric_difference, ^  --->    return all except same value
 
                                    11. isdisjoint               --->    return True if not same value in two sets
-                                   21. issubset                 --->    ex in ey, x.issubset(y)
-                                   22. issuperset               --->    ey in ex, x.issuperset(y)
+                                   12. issubset                 --->    ex in ey, x.issubset(y)
+                                   13. issuperset               --->    ey in ex, x.issuperset(y)
 
 ################################################
 
@@ -1157,7 +1200,6 @@ print(ans)
 6. Boolean Type:	bool
 7. Binary Types:	bytes, bytearray, memoryview
 8. None Type:	    NoneType
-
 
 x = None
 print(x)
@@ -1219,7 +1261,6 @@ Set is a mutable object but Set elements must be immutable obj.
 unordered ---> no index
 mutable   ---> update, delete, assign
 immutable elements  ---> can not ( update, delete, assign )
-
 
 set1 = {1, 2, 3, {"name": "Mg Mg"}, "apple"}
 print(set1)

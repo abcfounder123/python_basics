@@ -913,8 +913,8 @@ print(item_list)
 practice.12   --->   Solved Examples Using Sets Formulas
 
 Example 1:
-In a club, each person plays chess or carrom or both.
-The number of people who play chess, carrom or both are 11, 12 and 3 respectively.
+In a club, each person plays chess or carom or both.
+The number of people who play chess, carom or both are 11, 12 and 3 respectively.
 Representing this given information as sets and
 using the set formulae,
 
@@ -925,7 +925,7 @@ mg mg, ma ma, aung aung
 chess - mg mg, ma ma, aung aung
 c - mg mg, ma ma
 cook - ma ma, aung aung
-w - mg mg, ma ma, aung aung
+write - mg mg, ma ma, aung aung
 
 s = {'mg mg', 'ma ma', 'aung aung', 'mg mg', 'ma ma', 'ma ma', 'aung aung', 'mg mg', 'ma ma', 'aung aung'}
 print(s)
@@ -955,44 +955,47 @@ Answer: total people in club = 20
 # introduction
 
 # let each person has club id No.1 or 2 or 3
-# 3 person like both of chess and carrom
+# 3 person like both of chess and carom
 # let id of 3 person be 1, 5, 7
 
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
+p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}  # chess
+q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}  # carom
+# print(len(p))
+# print(len(q))
 
-#print(len(q))
 
-x = p.intersection(q)# (P ∩ Q)
+x = p.intersection(q)  # (P ∩ Q)
 
 print("id of people who like both = ", end="")
 print(x)
 
-print(len(x))# n(P∩Q) --> len(P & Q)
+print(len(x))  # n(P∩Q) --> len(P & Q)
 print()
 
 ans = p.union(q)  # (P ∪ Q)
 print("id of total people in club = ", end="")
 print(ans)
-print(len(ans))# n(P∪Q) total person  ---> len(P | Q)
+print(len(ans))   # n(P∪Q) total person  ---> len(P | Q)
 print()
 
 ################################################
 
+
 #Q1.  total people in club
 #  | ---> union
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
+p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}  # chess
+q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}  # carom
 
 print("Q1.  number total people in club =", len(p | q))
 print("Q1.  names of total people in club =", p | q)
+
 
 ################################################
 
 Q2. who like to play chess only
 
-p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
+p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}  # chess
+q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}  # carom
 
 # number of  who like to play chess only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
 # &  ---> intersection
@@ -1001,21 +1004,22 @@ print("names of  who like to play chess only  ---> p - (P ∩ Q) =", p - (p & q)
 
 ################################################
 
-Q3. who like to play carrom only
+Q3. who like to play carom only
+
 
 p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11} # chess
-q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20} # carrom
+q = {1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}  # carom
 
-# number of  who like to play carrom only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
+# number of  who like to play carom only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
 # &  ---> intersection
-print("number of  who like to play carrom only  ---> n(q) - n(P ∩ Q) =", len(q) - len(p & q))
-print("names of  who like to play carrom only  ---> q - (P ∩ Q) =", q - (p & q))
+print("number of  who like to play carom only  ---> n(q) - n(P ∩ Q) =", len(q) - len(p & q))
+print("names of  who like to play carom only  ---> q - (P ∩ Q) =", q - (p & q))
 
 ################################################
 
 # if you do not want to change group data, you can use frozenset.
-p = frozenset({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}) # chess
-q = frozenset({1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20}) # carrom
+p = frozenset({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11})  # chess
+q = frozenset({1, 5, 7, 12, 13, 14, 15, 16, 17, 18, 19, 20})  # carom
 
 # p.update([21, 22, 23])
 # number of  who like to play chess only  ---> n(p) - n(P ∩ Q) ---> len(p) - len(p & q)
