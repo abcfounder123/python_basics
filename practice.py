@@ -386,25 +386,82 @@ else:
 
 practice.4   --->   automatic water motor controller
 
+1. low level, electric, not short cicuit ---> print('motor On')
+    c1, c2, not c3
+2. low level, not electric ---> print('generator On'); print('motor On')
+    c1, not c2
+
+111  ---> print("motor 2 on")
+101 ---> print("motor 2 on")
+
+11110 ---> motor3 on
+10110 ---> m3 on
+
+11111  ---> call mechanic
+10111  ---> call mechanic
+
+low level, electric, not short circuit m1   ---> 110 ---> work1
+
+111  ---> w2
+
+1111, 1110  ---> w3
+
+10111, 10110  ---> w4
+
+110, 1110, 11110 ----> print("water")
+
+################################################################################################
+
 c1 = 1  # water sensor.2  ( low level ) ( True )
 c2 = 0  # electric ( true )
-c3 = 0  # short circuit ( false )
-c4 = 0  # water sensor.1  ( low level ) ( True )
+c3 = 1  # short circuit ( motor.3 )
+c5 = 1  # short circuit ( m.2 )
+c6 = 0  # short circuit ( m.3 )
+
+c4 = 0  # water sensor.1  ( high level ) ( True )
+
 
 if c1:
     if c2:
         if c3:
-            print("message motor error")
+            print("w2")
+            print("message ---> Short circuit motor1")
+            if c5:
+                print("w3 1")
+                print("message ---> Short circuit motor2")
+                if c6:
+                    print("message ---> Short circuit motor3")
+                    print("call mechanic")
+                else:
+                    print("'m3 on")
+                    print("water")
+            else:
+                print("w3 2")
+                print("motor 2 on")
+                print("water")
         else:
-            print("motor --->  water 1")
+            print("water")
+            print("w1")
+            print("motor On")
     else:
-        print('generator --> electric')
+        print("generator On")
         if c3:
-            print("message motor error")
-            print("close generator")
+            print("message ---> Short circuit motor1")
+            if c5:
+                print("message ---> Short circuit motor2")
+                if c6:
+                    print("w4 1")
+                    print("message ---> Short circuit motor3")
+                    print("generator Off")
+                    print("call mechanic")
+                else:
+                    print("w4 2")
+                    print("'m3 on")
+            else:
+                print("motor 2 on")
 
-       else:
-            print("motor --->  water 2")
+        else:
+            print("motor On")
 
 ################################################################################################
 
