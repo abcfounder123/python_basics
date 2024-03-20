@@ -90,7 +90,7 @@ x = 1 + i and x = 1 − i
 name                     >>       int, integer, integer literal
 definition               >>       integer
 usage                    >>       directly use
-description              >>       1. mthematical operation  
+description              >>       1. mathematical operation  
 
 # int x = 1;   <--- C programming language
 x = int(1);
@@ -116,15 +116,19 @@ description              >>       1. simple expression       --->   x = 1, 1 + 2
 
 1 + 2 = 3
 
+print(1 + 2.0)
+print(float(1) + 2.5)
+print(1 + int(2.5))
+
 #######
 
 # int and str
 x = "1"
 y = 1
 
-# print(y + x)
-print(y + int(x)) # 2
-print(str(y) + x) # 11
+#print(y + x)
+print(y + int(x))  # 1 + 1 = 2
+print(str(y) + x)  # "1" + "1" = "11"
 
 #######
 
@@ -132,8 +136,8 @@ print(str(y) + x) # 11
 
 x = "A"
 y = 65
-print(y + ord(x)) # A = 65, ord ---> chr to unicode No
-print(chr(y) + x) # a = 97, chr ---> unicode No to chr
+print(y + ord(x))  # A = 65, ord ---> chr to unicode No
+print(chr(y) + x)  # a = 97, chr ---> unicode No to chr
 
 ################################################ 
 
@@ -142,15 +146,15 @@ print(chr(y) + x) # a = 97, chr ---> unicode No to chr
 name                     >>       arithmatic operator
 definition               >>       
 usage                    >>       **, * /, + -  ( integer/ floor division, modulus )( / // % )
-description              >>       1. binary operator                        --->  1 - 2
-                                  2. unary operator                         --->  -1
+description              >>       1. binary operator                        --->  1 - 2 , left & right operand
+                                  2. unary operator                         --->  -1, right operand
                                   3. to get precision value, py use float   --->  1 + 0.1 = float
                                   4. error with /                           --->  1 - 1/3 -1/3 -1/3
+
 
 10 / 3 = 3.333
 10 // 3 = 3
 10 % 3 = 1
-
 
 print(4 - 3) # binary minus ( sub )
 print( - 3)  # unary minus ( neg )
@@ -165,6 +169,29 @@ e3 = 10 * 10 * 10
 
 0.00000000000000011102230246251565
 
+
+# e0 = 1.0
+# e1 = 10.0
+# e2 = 100.0
+# e3 = 1000.0
+# e10 = 10000000000.0
+
+# 1e0 = 1 * 1.0
+# 1e1 = 1 * 10.0
+x = 1e12
+print(x)
+
+# e-0 = 1 / e0 = 1 / 1.0 = 1.0 / 1.0 = 1.0
+# e-1 = 1 / e1 = 1 / 10.0 = 0.1
+# e-2 = 1 / e2 = 1 / 100.0 = 0.01
+# e-3  = 1 / e3 = 1 / 1000 = 0.001
+# e-10 = 1 / 1000 000 000 0 = 0.000 000 000 1
+ 
+
+print(1e10)
+print(1e-10)
+
+
 ################################################                                                         
 
 4. operator precedence and associativity
@@ -174,19 +201,23 @@ definition               >>
 usage                    >>      
 description              >>       p, e, u, * / , + -, ...,  =
                                   1. parenthesis                   --->   ( )
-                                  2. exponent                      --->   **                      --->   Right sided bind     --->   2 ** 2 ** 3
-                                                                                                                                     2 ** (2 ** 3)
-                                                                                                                                     2 ** 8
-                                                                                                                                     256
-                                  3. unary minus, unary plus       --->   -1, +1                                                                                                     
-
+                                  2. exponent                      --->   ** 
+                                     --->     Right sided bind     --->   2 ** 2 ** 3
+                                                                          2 ** (2 ** 3)
+                                                                          2 ** 8
+                                                                          256                                 
+                                  3. unary minus, unary plus       --->   -1, +1
                                   4. multiplication, division      --->   *, /, //, % 
-                                  5. addition, substration         --->   +, -
-                                  41. assignment                   --->   =                      --->   Right sided bind     --->   x = y = z = 1
+                                  5. addition, substraction         --->   +, -
+                                  41. assignment                   --->   =
+                                      --->   Right sided bind      --->   x = y = z = 1
+
 x = 1 + 2 - 2 * 3 / (-2) ** 2
 print(x)
 
 Note
+print(2 ** 4)  # power 4
+print(16 ** (1/4))  # root4
 1. root 2, 3, 4 --> x = 4 ** (1/2), x = 16 ** (1/4)
 
 ################################################
@@ -202,17 +233,18 @@ description              >>       1. continuous values( 17 )
                                      so, they can not make operation directly.   
                                      ( before operation, py changed int to float )
 
-                                  4. rounding adds or subtracts to produce closest value
+                                  4. rounding adds or subtracts to produce the closest value
                                          >> round(float)
                                             --> one argument value       --> int
                                             --> two                      --> float                       <----------
-                                                ( second arg may be positive(r) or negative(l) )
+                                                ( second arg may be positive(r)(>5) or negative(l)(5) )
 
 
                                   5. truncation to drop fractional part
                                          >> int()
 
-                                  6. sys.float_info --> min , max
+                                  6. sys.float_info --> min(0) , max(inf)
+
 
 # 1. continuous values( 17 )
 x = 1.234567890123456789
@@ -402,16 +434,17 @@ practice.2   --->   format table
 
 name                     >>       variable, identifier, label
 definition               >>       ကိုယ်စားပြုအမည်
-                                  Identifier  ( for all ) ( function, class, method)
+                                  Identifier  ( for all ) ( value, function, class, method, module)
                                   variable ( for values )
 usage                    >>       =
-description              >>       Python has five rules for naming idenfiers. ( one, alpha, number, o, r )
+description              >>       Python has five rules for naming identifiers. ( one, alpha, number, o, r )
                                   1. An identifier must contain at least one character.
                                   2. The first character of an identifier must be an alphabet or the underscore.
                                   3. The remaining characters may be alphabets, underscores, numbers.
                                   4. Qther characters are not permitted.
                                   5. A reserved keyword cannot be used as an identifier.
                                   6. 
+
 
 import keyword
 
@@ -433,20 +466,8 @@ Note
 name                     >>       assignment operator
 definition               >>       assign right ( obj ) (memory address) to left ( identifier )
 usage                    >>       =
-description              >>       += , -=, *=, /=, //=, %=  မူလတန်ဖိုးကိုပဲ ထပ်ပေါင်းချင်ရင်သုံး
+description              >>       += , -=, *=, /=, //=, %=, **  မူလတန်ဖိုးကိုပဲ ထပ်ပေါင်းချင်ရင်သုံး
 
-x = 100
-print(id(x))
-
-x = x + 1
-x += 1
-print(id(x))
-
-x = 100
-print(id(x))
-
-x = 101
-print(id(x))
 
 ################################################
 
@@ -458,9 +479,15 @@ usage                    >>       #
 description              >>       python will ignore all lines with the first charactor #
 
 
-"""
+# receive fahrenheit value from user
+f = float(input("Enter degree F = "))
 
-"""
+# F to C formula
+c = (f - 32) * 5 / 9
+
+# output Celsius value
+print(f"Degree C value = {c:.2f}")
+
 ################################################
 
 12. errors                          
@@ -1303,7 +1330,7 @@ print(z)
 
 ################################################
 
-1. int(x [,base]), result = decimal value, int value
+1. int(x [,base]), result = decimal value, base 10, int value
 Converts x to an integer. base specifies the base if x is a string.
 
 x = int(2)
@@ -1312,23 +1339,22 @@ print(x)
 x = int(2.65)
 print(x)
 
-x = int('100', base=2)
+x = int('10', base=2)
 print(x)
-x = int('100', base=8)
+x = int('10', base=8)
 print(x)
-x = int('100')
+x = int('10', base=10)
 print(x)
-x = int('100', base=16)
+x = int('10', base=16)
 print(x)
 
-
-x = int('0b100', base=0) # "b" = binary numbering system
+x = int('0b10', base=0)  # "b" = binary numbering system
 print(x)
-x = int('0O100', base=0) # "O"  = octal numbering system
+x = int('0O10', base=0)  # "O"  = octal numbering system
 print(x)
-x = int('100') # directly use = decimal numbering system
+x = int('10', base=0)  # directly use = decimal numbering system
 print(x)
-x = int('0x100', base=0) # "x"  = hexadecimal numbering system
+x = int('0x10', base=0)  # "x"  = hexadecimal numbering system
 print(x)
 
 c = input("code No : ")
@@ -1337,48 +1363,87 @@ b = int(input("base :"))
 x = int(c, b)
 print(x)
 
-c = input("code No : ")
+
+c = input("code No (0b, 0O, 0x ): ")  # 0x107cd02bb70
 x = int(c, 0)
-print(x)
+print("decimal value =", x)
+
+#####################
+
+help(int)
+
+--->  int(x, base=10)
+
+Convert a number or string to an integer,                  ---> x = int(1.2),  x = int("10")
+ 
+return 0 if no arguments are given.                        ---> x = int()  # x = 0
+
+If x is a number, return x.__int__().                      ---> x = int(10)  # x = 10 ( int object  )
+
+For floating point numbers, this truncates towards zero.   ---> x = int(1.9)  # x = 1
+
+If base is given, 
+then x must be a string instance representing an integer literal in the given base.
+                                                           ---> int("1010101", base=2), 
+                                                           --->  x = int("k", 21)
+ 
+integer literal in the base 2   ---> 0, 1
+integer literal in the base 8   ---> 0, 1, 2, 3, 4, 5, 6, 7
+integer literal in the base 10  ---> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+integer literal in the base 16  ---> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f
+                                ---> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+
+integer literal in the base 36  ---> 0, 1, ...., 35(a, b, c, ...  ( count 36 )
+ 
+The literal can be preceded by '+' or '-' and be surrounded by whitespace.    
+                                ---> x = int(" -f ", base=16)
+                                
+The base defaults to 10.        ---> x = int("10")   # x = int("10", base=10)
+
+Valid bases are 0 and 2-36.     ---> x = int("10", base=36) , x = int("z", 36)  # 0 to 35(z)
+
+Base 0 means to interpret the base from the string as an integer literal.
+>> zero + code No
+>> base from the string         ---> 0b (base 2), 0o (base 8), 0x (base 16)      
+                                ---> int('0b10', base=0)
+
+#####################
 
 import sys
 
-x = 1000000000000000000000000000000  # 28, e16 --> 32 bytes, e30 = 40 bytes, e60 = 52 bytes
+x = 0  # 28, e10 --> 32 bytes, e30 = 40 bytes, e60 = 52 bytes
 print(sys.getsizeof(x))
 
 s = set()  # empty = 216, 4 elements = 216, 5 elements = 472
+print(sys.getsizeof(s))
 
 d = {"name": "Mg Mg"}  # 64 , 1 = 184
 print(sys.getsizeof(d))
 
-x = "apple"
-print(hex(id(x)))
-c = input("code No (0b, 0O, 0x ): ")  # 0x107cd02bb70
-x = int(c, base=0)
-print(x)
-  
-  
-2. long(x [,base] )
+#####################
+
+2. long(x, base )   ( removed in py 3 )
 Converts x to a long integer. base specifies the base if x is a string.
 
 
 3. float(x)
 Converts x to a floating-point number.
 Convert a string or number to a floating point number, if possible.
+
 s = 5
 f = float(s)
 print(f)
 
-a = 1 + 2.5 + 4
-print(a)
+x = "100"
+f = float(x)
+print(f)
 
-a = 1 + int(2.5) + 4
-print(a)
+x = True
+f = float(x)
+print(f)
 
-print(float("100"))
 
-
-4. complex(real [,imag])
+4. complex(real, img)
 Creates a complex number.
 Create a complex number from a real part and an optional imaginary part.
 
@@ -1387,14 +1452,14 @@ x = 5 + 3j
 print(z)
 print(z.real)
 print(z.imag)
-print(x / z)
+print(x + z)
 
 z = complex(5, 3)
 x = complex(5, 3)
 print(z)
 print(z.real)
 print(z.imag)
-print(x * z)
+print(x + z)
 
 help(z)
 
@@ -1410,7 +1475,9 @@ print(type(s))
 Converts object x to an expression string.
 
 x = 1
-print(repr(x))
+r = repr(x)  # "1"
+print(r)
+print(type(r))
 
 
 class X:
@@ -1418,7 +1485,7 @@ class X:
         return "haha"
 
     def __repr__(self):
-        return f"<basics.X object at {hex(id(self))}>"
+        return f"<__main__.X object at {hex(id(self))}>"
 
 
 x = X()
@@ -1434,8 +1501,9 @@ print(repr(y))
 Evaluates a string and returns an object.
 
 s = "1 + 2"
+e = eval(s)  # 1 + 2 = 3
 print(s)
-print(eval(s))
+print(e)
 
 
 8. tuple(s)
@@ -1476,13 +1544,10 @@ Converts s to a frozen set.
 13. chr(x)
 Converts an integer to a character.
 
-x = 4097
+x = 0x1000  # 4096
 print(x)
 y = chr(x)
 print(y)
-
-import sys
-print(sys.getsizeof(y))
 
 
 14. unichr(x)
@@ -1496,9 +1561,9 @@ x = 4096
 print(chr(x))
 
 x = "က"
-print(ord(x)) # 4096
-print(hex(ord(x))) # 0x1000
+print(ord(x))  # 4096
 
+print(hex(ord(x)))  # 0x1000
 print(ord("a"))
 
 
@@ -1506,20 +1571,21 @@ print(ord("a"))
 Converts an integer to a hexadecimal string.
 
 x = 4096
-h = hex(x)
+h = hex(x)  # "0x1000"
 print(h)
+
 print(int(h, base=0))
 
 
 17. oct(x) 
 Converts an integer to an octal string
 
-10
+x = 8
+o = oct(x)  # "0o10"
+print(o)
 
-101
+print(int(o, 0))
 
-x = 16
-print(oct(x))
 
 ################################################
 ################################################
