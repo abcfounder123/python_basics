@@ -1161,4 +1161,37 @@ print(1, "apple", file=open("a.txt", "w"))
 # effect and result   ---> dict.pop()
 
 ################################################################################################
+
+# အခြား website မှ သတင်းများကို လိုအပ်သလို ဖြတ်တောက်ပြီး မိမိ၏ ကိုယ်ပိုင် website တွင် ပြသခြင်း
+
+
+# flask lesson.5( html parser )
+import feedparser
+from flask import Flask
+app = Flask(__name__)
+BBC_FEED = "http://feeds.bbci.co.uk/news/rss.xml"
+
+feed = feedparser.parse(BBC_FEED)
+p = ""
+for i in range(5):
+ x = feed['entries'][i]
+ p += """<html>
+ <body>
+ <h1> BBC Headlines {3} </h1>
+ <b>{0}</b> <br/>
+ <i>{1}</i> <br/>
+ <p>{2}</p> <br/>
+ </body>
+</html>""".format(x.get("title"), x.get("published"), x.get("summary"), i+1)
+
+    
+@app.route("/")
+def get_news():
+    return p   
+
+if __name__ == "__main__":
+ app.run(port=5000, debug=True)
+
+####################
+
 """
