@@ -1,0 +1,1 @@
+# note for "all in one" class
