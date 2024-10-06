@@ -35,12 +35,12 @@ return     = used to exit a function and return a value (keyword)  ( default val
 
 # parameter
 
-# 1. standard / normal parameter       ---> (x, y)
+# 1. standard / normal parameter    ---> (x, y)
 # positional arguments              ---> (2, 3)
 # keyword arguments                 ---> (x=2, y=3)
 # mixed                             ---> (2, y=3)
 
-# 2. special parameter                 ---> /, *
+# 2. special parameter              ---> /, *
 # positional only parameter         ---> (x, y, /)
 # keyword only parameter            ---> (*, x, y)
 
