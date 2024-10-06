@@ -31,7 +31,7 @@ return     = used to exit a function and return a value (keyword)  ( default val
 
 ################################################
 
-7. parameterized function
+6. parameterized function
 
 # parameter
 
