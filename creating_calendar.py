@@ -192,8 +192,7 @@ for i in data:
 ################################################
 
 # proper style
-for i in data:
-    no, name, age = i
+for no, name, age in data:
     print(f"|{no:^6}|{name:^24}|{age:^7}|")
     print(line)
 
