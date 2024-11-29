@@ -427,7 +427,11 @@ range
 
 ################################################
 
-3.2.dynamic type ->  allows variables to change types during runtime
+3.2.dynamic type, static type
+
+dynamic type 
+
+->  allows variables to change types during runtime
 
 x = 1
 x = 2
@@ -493,10 +497,10 @@ a  b  c  d  e  f  g
 0  1  2  3  4  5  6
 7  6  5  4  3  2  1 -
 
-t = 7, 
+total = 7
 range ---> -7  -6  -5  -4  -3  -2  -1   0   1   2   3   4   5   6
  
-range -> -t, ..., t-1
+-> -t, ..., t-1
 
 -> positive index, negative index
 -> total - abs(easy)
@@ -510,15 +514,18 @@ even ---> rm -> t // 2,
 
 slicing
 
--> start, stop, step= l to r -> + , r to l -> - 
+-> start, stop, step
+-> left to right -> + 
+-> right to left -> - 
+
 f5 = x[:5]
 l5 = x[-5:] 
 r = x[::-1]
 
 "abcdefg"
 a  b  c  d  e  f  g
-0  1  2  3  4  5  6
-7  6  5  4  3  2  1 
+0  1  2  3  4  5  6  positive index
+7  6  5  4  3  2  1  negative index
 
 l5 = x[-5:]  
 l5r = x[-1:-6:-1]
