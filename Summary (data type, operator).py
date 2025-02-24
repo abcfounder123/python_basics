@@ -141,7 +141,7 @@ operators ( 44 )
 1. Operand
 2. Binary Operator     --->   40
 3. Unary operator      --->   4  (+, -, not, ~)       (U2, not 2)
-4. Precedence          --->   15 (e, u, */, +-,  shift, and, or 2,  C, not, and, or,  t, assignment, warlus)
+4. Precedence          --->   15 (e, u, */, +-,  shift, and, or 2,  C, not, and, or,  t, assignment, walrus)
 5. Associativity       --->   l 28, r 16 (exponent)(Assignment Operators 13)(Walrus)(lambda)(**, =)
 6. Names of all operators
 
